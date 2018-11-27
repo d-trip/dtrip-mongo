@@ -1,0 +1,6 @@
+geopy==1.17.0
+mongoengine==0.16.1
+steem==1.0.1
+tqdm
+requests
+-e git+https://github.com/chengs/tqdm/tree/colab##egg=tqdm

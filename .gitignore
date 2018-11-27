@@ -1,0 +1,9 @@
+__pycache__/
+data
+logs
+.venv/
+.env
+*.pyc 
+swm.xml
+api.py
+settings_local.py
