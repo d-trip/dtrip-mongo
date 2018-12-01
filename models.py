@@ -48,6 +48,10 @@ class PostModel(DynamicDocument):
             'author',
             'permlink',
             'created',
+
+            {'fields': ['$title', '$body'],
+             'default_language': 'english',
+             'weights': {'title': 10, 'body': 2}}
         ],
 
         'auto_create_index': True,
