@@ -7,7 +7,7 @@ docker run --restart unless-stopped --name dtrip-mongo-parser -t -d \
   -e MONGO_HOST= \
   -e MONGO_USER= \
   -e MONGO_PASSWORD= \
-  dtrip-mongo python main.py <flags>
+  avral/dtrip-mongo python main.py <flags>
 ```
 
 ## Flags:
