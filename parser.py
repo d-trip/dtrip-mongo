@@ -56,7 +56,7 @@ def stream(BLOCK_NUM=None):
                     try:
                         update_swm_post(construct_identifier(), swm_tag)
                     except NoSWMTag:
-                        logging.exception()
+                        logging.exception('Update swm in parser err')
 
         elif op_type == 'account_update':
             update_account(op['account'])
