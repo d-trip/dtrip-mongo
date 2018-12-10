@@ -1,3 +1,5 @@
+import logging
+
 from steem import Steem
 from steem.blockchain import Blockchain
 from steem.instance import set_shared_steemd_instance
@@ -7,7 +9,8 @@ from utils import (
     set_check_point,
     get_check_point,
     get_current_block_num,
-    get_swm_tag
+    get_swm_tag,
+    NoSWMTag
 )
 
 
@@ -50,7 +53,10 @@ def stream(BLOCK_NUM=None):
                 swm_tag = get_swm_tag(op['body'])
 
                 if swm_tag:
-                    update_swm_post(construct_identifier(), swm_tag)
+                    try:
+                        update_swm_post(construct_identifier(), swm_tag)
+                    except NoSWMTag:
+                        logging.exception()
 
         elif op_type == 'account_update':
             update_account(op['account'])

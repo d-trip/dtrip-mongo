@@ -47,9 +47,9 @@ def update_swm_post(post: str, tag=None):
 
     if tag:
         lat, lng, desc = get_swm_tag(post['body'])
-
     else:
         raise NoSWMTag(f'Not contains tag {post["identifier"]}')
+
     try:
         lat = float(clean_coordinate(lat))
         lng = float(clean_coordinate(lng))
