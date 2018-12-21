@@ -75,6 +75,7 @@ class AccountModel(DynamicDocument):
         'collection': 'account_object',
         'indexes': [
             'sp',
+            'rep',
             'name',
             'created',
             'last_post',
@@ -85,10 +86,10 @@ class AccountModel(DynamicDocument):
             'profile.accepting_guests',
 
             # For multiple sort
-            ['sp',
-             'last_post',
+            ['profile.accepting_guests',
              'profile.wants_meet_up',
-             'profile.accepting_guests'],
+             'rep',
+             'last_post'],
 
             {'fields': ['$profile.about', '$profile.location', '$name'],
              'default_language': 'english',
