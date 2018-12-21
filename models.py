@@ -74,6 +74,7 @@ class AccountModel(DynamicDocument):
     meta = {
         'collection': 'account_object',
         'indexes': [
+            'sp',
             'name',
             'created',
             'last_post',
@@ -82,6 +83,12 @@ class AccountModel(DynamicDocument):
             'reset_account',
             'profile.wants_meet_up',
             'profile.accepting_guests',
+
+            # For multiple sort
+            ['sp',
+             'last_post',
+             'profile.wants_meet_up',
+             'profile.accepting_guests'],
 
             {'fields': ['$profile.about', '$profile.location', '$name'],
              'default_language': 'english',
